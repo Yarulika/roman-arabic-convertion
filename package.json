@@ -1,0 +1,31 @@
+{
+  "name": "roman-arabic-convertion",
+  "version": "0.1.0",
+  "description": "Microservice for converting Roman Numerals to Arabic Numbers",
+  "main": "index.js",
+  "scripts": {
+    "build": "tsc",
+    "test": "jest",
+    "test:watch": "jest --watch"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Yarulika/roman-arabic-convertion.git"
+  },
+  "author": "Anna Yarulina",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Yarulika/roman-arabic-convertion/issues"
+  },
+  "homepage": "https://github.com/Yarulika/roman-arabic-convertion#readme",
+  "dependencies": {
+    "@types/express": "^4.17.7",
+    "express": "^4.17.1"
+  },
+  "devDependencies": {
+    "@types/jest": "^26.0.10",
+    "jest": "^26.4.0",
+    "ts-jest": "^26.2.0",
+    "typescript": "^3.9.7"
+  }
+}
