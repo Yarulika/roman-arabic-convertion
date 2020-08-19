@@ -11,10 +11,16 @@ Microservice for converting Roman Numerals to Arabic Numbers
 - Output Plain String (output is calculated from the input. The input is Roman Numeral which is converted to Arabic Number)
 
 
-## Requirements:
+## Deployment requirements:
 
 - NodeJs
 - Docker
+
+
+## Deployment:
+
+- `docker build . --tag converter`
+- `docker run -it -p 3000:3000 converter`
 
 
 ## Development:
@@ -22,9 +28,3 @@ Microservice for converting Roman Numerals to Arabic Numbers
 - `npm run build` - Compile Typescript to Javascript
 - `node src/server.js` - Run locally
 - `npm run test:watch` - Run watch mode for tests
-
-
-## Deployment:
-
-- `docker build . --tag converter`
-- `docker run -it -p 3000:3000 converter`

@@ -26,7 +26,6 @@ export function isValidRepetitions(input:string){
   let previousNumeral = input[0]
   let maxRepeat = 1
   for (let i=1; i<input.length; i++){
-    console.log(input[i])
     if(previousNumeral === input[i]){
       maxRepeat ++
     }
