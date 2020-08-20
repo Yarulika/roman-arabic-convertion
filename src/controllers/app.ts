@@ -2,6 +2,7 @@ import express, {Request, Response} from 'express'
 import {
   isValidRomanNumerals,
   isValidRepetitions,
+  isValidForSubtraction,
   calculateArabicValue,
 } from '../services/converter'
 
@@ -25,6 +26,11 @@ app.get('/', function (req: Request, res: Response) {
       "V L D: cannot repeat; " +
       "I X C M: can repeat max 3 in a row"
     )
+    return
+  }
+
+  if (!isValidForSubtraction(input)){
+    res.status(400).send("Smallest numeral placed before bigger cannot repeat and it can be one of: I X C M")
     return
   }
 

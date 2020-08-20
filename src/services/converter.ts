@@ -1,12 +1,12 @@
 
-const romanNumeralsValues : {[c: string]: {val:number, maxRepeat: number}} = {
-  'I': {val: 1, maxRepeat: 3},
-  'V': {val: 5, maxRepeat: 1},
-  'X': {val: 10, maxRepeat: 3},
-  'L': {val: 50, maxRepeat: 1},
-  'C': {val: 100, maxRepeat: 3},
-  'D': {val: 500, maxRepeat: 1},
-  'M': {val: 1000, maxRepeat: 3}
+const romanNumeralsValues : {[c: string]: {val:number, maxRepeat: number, ifSubtrahend: boolean}} = {
+  'I': {val: 1, maxRepeat: 3, ifSubtrahend: true},
+  'V': {val: 5, maxRepeat: 1, ifSubtrahend: false},
+  'X': {val: 10, maxRepeat: 3, ifSubtrahend: true},
+  'L': {val: 50, maxRepeat: 1, ifSubtrahend: false},
+  'C': {val: 100, maxRepeat: 3, ifSubtrahend: true},
+  'D': {val: 500, maxRepeat: 1, ifSubtrahend: false},
+  'M': {val: 1000, maxRepeat: 3, ifSubtrahend: true}
 }
 
 export function isValidRomanNumerals(input: string) {
@@ -39,6 +39,28 @@ export function isValidRepetitions(input:string){
   }
   if (maxRepeat > romanNumeralsValues[previousNumeral].maxRepeat){
     return false
+  }
+  return true
+}
+
+export function isValidForSubtraction(input:string){
+  //smallest numeral placed before bigger cannot repeat and it can be one of: I X C M
+  if (input.length === 1){
+    return true
+  }
+  let previousNumeral = input[0]
+  let maxRepeat = 1
+  for (let i=1; i<input.length; i++){
+    if(previousNumeral === input[i]){
+      maxRepeat ++
+    }
+    else {
+      if(romanNumeralsValues[previousNumeral].val < romanNumeralsValues[input[i]].val){
+        return !!((maxRepeat === 1) && romanNumeralsValues[previousNumeral].ifSubtrahend)
+      }
+      maxRepeat = 1
+      previousNumeral = input[i]
+    }
   }
   return true
 }

@@ -1,6 +1,7 @@
 import {
   isValidRomanNumerals,
   isValidRepetitions,
+  isValidForSubtraction,
   calculateArabicValue
 } from "./converter";
 
@@ -27,6 +28,24 @@ describe("Converter: isValidRepetitions function", () => {
     expect(isValidRepetitions("MMMM")).toBe(false)
     expect(isValidRepetitions("DD")).toBe(false)
     expect(isValidRepetitions("MDCCCC")).toBe(false)
+  })
+
+})
+
+describe("Converter: isValidForSubtraction function", () => {
+
+  it("isValidForSubtraction successful flow", () => {
+    expect(isValidForSubtraction("IV")).toBe(true)
+    expect(isValidForSubtraction("VII")).toBe(true)
+    expect(isValidForSubtraction("XC")).toBe(true)
+    expect(isValidForSubtraction("XXI")).toBe(true)
+  })
+
+  it("isValidForSubtraction exception flow", () => {
+    expect(isValidForSubtraction("IIIX")).toBe(false)
+    expect(isValidForSubtraction("IIX")).toBe(false)
+    expect(isValidForSubtraction("MMMCCM")).toBe(false)
+    expect(isValidForSubtraction("VX")).toBe(false)
   })
 
 })

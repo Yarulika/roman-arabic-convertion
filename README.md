@@ -3,6 +3,15 @@
 Microservice for converting Roman Numerals to Arabic Numbers
 
 
+## Roman Numerals rules supported:
+
+- in use: M D C L X V I symbols
+- repetitions rules:
+  - V L D: cannot repeat
+  - I X C M: can repeat max 3 in a row
+- smallest numeral placed before bigger cannot repeat and it can be one of: I X C M
+
+
 ## API specification:
 
 - Method GET
